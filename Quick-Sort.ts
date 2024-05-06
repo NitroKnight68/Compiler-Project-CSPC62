@@ -4,25 +4,25 @@ function swap(arr: number[], idx1: number, idx2: number) {
     arr[idx2] = temp;
 }
 
-function partition(arr: number[], lo: number, hi: number) {
-    const pivot: number = arr[hi];
+function partition(part: number[], lo: number, hi: number) {
+    const pivot: number = part[hi];
     let idx: number = lo - 1;
 
     for (let i: number = lo; i < hi; i++) {
-        if (arr[i] <= pivot) {
+        if (part[i] <= pivot) {
             idx++;
-            swap(arr, i, idx);
+            swap(part, i, idx);
         }
     }
     idx++;
-    swap(arr, hi, idx);
+    swap(part, hi, idx);
     return idx;
 }
 
-function quickSort(arr: number[], lo: number, hi: number) {
-    const pivotIndex: number = partition(arr, lo, hi);
-    quickSort(arr, lo, pivotIndex - 1);
-    quickSort(arr, pivotIndex + 1, hi);
+function quickSort(array: number[], low: number, high: number) {
+    const pivotIndex: number = partition(array, low, high);
+    quickSort(array, low, pivotIndex - 1);
+    quickSort(array, pivotIndex + 1, high);
 }
 
 let arrayInput: number[] = [2, 9, 1, 5, 8];
